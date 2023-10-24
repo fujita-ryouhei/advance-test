@@ -1,0 +1,149 @@
+.wrap {
+    max-width: 1230px;
+    line-height: 1.7;
+}
+
+.wrap h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contents {
+    width: 70%;
+    margin: auto;
+}
+
+.c-form-inputs__group,
+.c-form-inputs__group--checkbox {
+    display: flex;
+    align-items: flex-start;
+}
+
+.c-form-inputs__group:not(:first-of-type),
+.c-form-inputs__group--checkbox:not(:first-of-type) {
+    margin-top: 30px;
+}
+
+.c-form-inputs__label {
+    width: 25%;
+    font-weight: bold;
+}
+
+.c-form-inputs__label .__required {
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 2px;
+    margin-right: 8px;
+    padding: 2px 6px;
+    color: red;
+}
+
+.c-form-inputs__input {
+    width: 100%;
+    padding-left: 40px;
+}
+
+input,
+textarea,
+select {
+    line-height: 1.5;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 3px;
+    padding: 10px 12px;
+}
+
+input[type=text] {
+    width: 80%;
+    font-size: 20px;
+    padding: 3px 8px;
+}
+
+input[type=email] {
+    width: 80%;
+    font-size: 20px;
+    padding: 3px 8px;
+}
+
+input[type=radio]+label {
+    display: block;
+    font-size: 20px;
+    margin-right: 20px;
+    margin-bottom: 4px;
+    padding-left: 28px;
+    position: relative;
+    cursor: pointer;
+}
+
+.input[type=radio]+label::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #f5f5f5;
+    border: solid 1px #d5d5d5;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+input[type=radio]+label::after {
+    content: "";
+    display: none;
+    width: 13.5px;
+    height: 13.5px;
+    background-color: #014c86;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+input#gender-1,
+input#gender-2 {
+    width: 20px;
+    height: 20px;
+}
+
+.names__input {
+    display: flex;
+}
+
+.name__input {
+    margin-left: 40px;
+}
+
+.__gender {
+    display: flex;
+}
+
+.c-form-inputs__caption {
+    color: #939597;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+textarea {
+    font-size: 20px;
+    padding: 3px 8px;
+    width: 80%;
+    height: 90px;
+}
+
+.c-form-inputs__button {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.__submit {
+    width: 20%;
+    height: 50px;
+    font-size: 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
