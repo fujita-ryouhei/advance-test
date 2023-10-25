@@ -126,6 +126,10 @@ input#gender-2 {
     margin-top: 8px;
 }
 
+.c-form-inputs__error-message {
+    color: red;
+}
+
 textarea {
     font-size: 20px;
     padding: 3px 8px;
@@ -146,4 +150,5 @@ textarea {
     color: #fff;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
