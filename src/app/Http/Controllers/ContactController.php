@@ -28,4 +28,10 @@ class ContactController extends Controller
         Contact::create($contact);
         return view('thanks');
     }
+
+    public function management()
+    {
+        $contacts = Contact::Paginate(10);
+        return view('management', ['contacts' => $contacts]);
+    }
 }
