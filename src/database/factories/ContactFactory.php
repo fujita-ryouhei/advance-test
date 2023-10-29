@@ -19,7 +19,7 @@ class ContactFactory extends Factory
         return [
             'family_name' => $this->faker->lastName,
             'name' => $this->faker->firstName,
-            'gender' => $this->faker->randomElement(['male', 'female']), // 例: ランダムに性別を選択
+            'gender' => $this->faker->randomElement(['男性', '女性']), // 例: ランダムに性別を選択
             'email' => $this->faker->safeEmail,
             'postal' => substr_replace($this->faker->postcode,'-',3, 0),
             'address' => $this->faker->streetAddress,

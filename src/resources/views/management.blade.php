@@ -14,7 +14,8 @@
             <h2>管理システム</h2>
         </div>
         <div class="search-content">
-            <form action="" method="post" class="s-form">
+            <form action="/search" method="post" class="s-form">
+                @csrf
                 <div class="s-form-inputs">
                     <div class="s-form-inputs__group">
                         <div class="__name">
@@ -29,7 +30,7 @@
                             <label class="s-form-inputs__label">性別</label>
                         <div class="s-form-inputs__input">
                             <div class="gender">
-                                <input type="radio" name="gender" id="gender-0" autocomplete="off" value="" checked><label for="gender-0">全て</label>
+                                <input type="radio" name="gender" id="gender-0" autocomplete="off" value="男性女性" checked><label for="gender-0">全て</label>
                                 <input type="radio" name="gender" id="gender-1" autocomplete="off" value="男性"><label for="gender-1">男性</label>
                                 <input type="radio" name="gender" id="gender-2" autocomplete="off" value="女性"><label for="gender-2">女性</label>
                             </div>
@@ -42,13 +43,13 @@
                     <div class="s-form-inputs__group">
                         <label class="s-form-inputs__label">登録日</label>
                         <div class="s-form-inputs__input">
-                            <input type="date" name="" id="">
+                            <input type="date" name="start_date" id="">
                         </div>
                     </div>
                     <div class="s-form-inputs__group">
                         <label class="s-form-inputs__label">~</label>
                         <div class="s-form-inputs__input">
-                            <input type="date" name="" id="">
+                            <input type="date" name="end_date" id="">
                         </div>
                     </div>
                 </div>
@@ -57,7 +58,7 @@
                     <div class="s-form-inputs__group">
                         <label class="s-form-inputs__label">メールアドレス</label>
                         <div class="s-form-inputs__input">
-                            <input type="email" name="" id="">
+                            <input type="email" name="email" id="">
                         </div>
                     </div>
                 </div>
@@ -83,26 +84,36 @@
             <th>ご意見</th>
         </tr>
         @foreach ($contacts as $contact)
-        <tr>
-            <td>
-                {{$contact['id']}}
-            </td>
-            <td>
-                {{ $contact['family_name'].$contact['name'] }}
-            </td>
-            <td>
-                {{ $contact['gender'] }}
-            </td>
-            <td>
-                {{ $contact['email'] }}
-            </td>
-            <td>
-                {{ $contact['address'] }}
-            </td>
-            <td>
-                {{ $contact['opinion'] }}
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    {{$contact['id']}}
+                </td>
+                <td>
+                    {{ $contact['family_name'].$contact['name'] }}
+                </td>
+                <td>
+                    {{ $contact['gender'] }}
+                </td>
+                <td>
+                    {{ $contact['email'] }}
+                </td>
+                <td>
+                    {{ $contact['address'] }}
+                </td>
+                <td>
+                    <?php echo mb_strimwidth($contact['opinion'], 0, 25, '…', 'UTF-8'); ?>
+                </td>
+                <td>
+                    <form action="/delete" method="post" class="delete-form">
+                        @method('DELETE')
+                        @csrf
+                        <div class="delete-form__button">
+                            <input type="hidden" name="id" value="{{ $contact['id'] }}">
+                            <button type="submit">削除</button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
         @endforeach
         </table>
     </div>
