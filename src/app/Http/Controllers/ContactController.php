@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use Illuminate\Http\Request;
 use App\Models\Contact;
 
 class ContactController extends Controller
@@ -47,12 +48,12 @@ class ContactController extends Controller
 
         if (!empty($name))
         {
-            $query->where('family_name', 'name', 'like', "%$name%");
+            $query->where('family_name', 'like', "%" . $name . "%");
         }
 
         if (!empty($gender))
         {
-            $query->where('gender', 'like', "%$gender%");
+            $query->where('gender', $gender);
         }
 
         if (!empty($startDate))
@@ -67,11 +68,11 @@ class ContactController extends Controller
 
         if (!empty($email))
         {
-            $query->where('email', $email);
+            $query->where('email', 'like', "%" . $email . "%");
         }
 
-        $results = $query->get()->Paginate(10);
-        return view('management', ['results' => $results]);
+        $contacts = $query->Paginate(10);
+        return view('management', ['contacts' => $contacts]);
     }
 
     public function destroy(Request $request)
