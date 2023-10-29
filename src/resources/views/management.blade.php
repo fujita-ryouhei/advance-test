@@ -82,6 +82,7 @@
             <th>メールアドレス</th>
             <th>住所</th>
             <th>ご意見</th>
+            <th></th>
         </tr>
         @foreach ($contacts as $contact)
             <tr>
@@ -109,7 +110,7 @@
                         @csrf
                         <div class="delete-form__button">
                             <input type="hidden" name="id" value="{{ $contact['id'] }}">
-                            <button type="submit">削除</button>
+                            <button type="submit" class="delete-form__button--submit">削除</button>
                         </div>
                     </form>
                 </td>
